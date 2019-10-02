@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////
 /////////////REALISATION EXERCICE sans OBJET
 ////////////////////////////////////////////////////
-
-
+/*
 function choix(){
 	console.log("bienvenue dans le gestionnaire de contacts!")
 	let entree;
@@ -38,9 +37,7 @@ const contacts =["Carolle Levisse", "Melodie Nelsonne"]; //declaration des premi
 alert("ajout de contacts");
 choix();
 
-
-
-
+*/
 
 
 ////////////////////////////////////////////////////
@@ -48,43 +45,47 @@ choix();
 ////////////////////////////////////////////////////
 
 
-/*
-//CREATION OBJET
-class contact{
-	constructor (prenom, nom){
-		this.prenom = prenom;
-		this.nom = nom;
-	}
-
-	ajoutContact(prenom, nom){
-		this.prenom = prompt("prenom:");
-		this.nom = prompt("nom:");
-		contacts.push(new contact(this.prenom + this.nom));
-		console.log("\nLe nouveau contact " +  this.prenom  + " " + this.nom + " a bien ete ajoute." );
-
-	}
+// Construction objet
+class Contact {
+  constructor(prenom, nom) {
+    this.prenom = prenom;
+    this.nom = nom;
+  }
+  // Renvoie la description du contact
+  decrire() {
+    return `prenom: ${this.prenom}, nom: ${this.nom}`;
+  }
 }
+
+//Declaration du tableau
+const listeContacts =[];
+//declaration des premiers contacts presents dans le tableau.
+listeContacts.push(new Contact("Carolle", "Levisse"));
+listeContacts.push(new Contact("Melodie", "Nelsonne"));
 
 //Programme
 function choix(){
-	console.log("bienvenue dans le gestionnaire de contacts!")
+	console.log("Bienvenue dans le gestionnaire de contacts!")
 	let entree;
 
-	while (entree != 0 ){
-		console.log ("\n1: lister les contacts");
+	while (entree != 0 ){ //boucle tant que l'entrée n'est pas égale a 0.
+		console.log ("\n1: Lister les contacts");
 		console.log ("2: Ajouter un contact");
-		console.log ("0: quitter");
-		let entree = prompt("\nChoisissez une option");
+		console.log ("0: Quitter");
+		let entree = prompt("\nChoisissez une option :");
 
 		switch(entree){
 		case "1":
 			console.log("\nVoici la liste de tout vos contacts :");
-			contacts.forEach(contact =>{console.log(contact);
+			listeContacts.forEach(contact =>{
+			console.log(contact.decrire());
 			});
 		break;
 		case"2":
-			ajoutContact(prenom, nom);
-			
+		    this.prenom = prompt("Saisissez le prenom : ");
+		    this.nom = prompt("Saisissez le nom :");
+			listeContacts.push(new Contact(this.prenom, this.nom));
+			console.log("Le nouveau contact a bien ete ajoute");
 		break;
 		}
 	if (entree == 0) {
@@ -94,19 +95,5 @@ function choix(){
 	console.log("\nAu revoir!");
 }
 
-	
-const contacts =["Carolle Levisse", "Melodie Nelsonne"];
-alert("ajout de contacts");
+alert("Ajout de contacts");
 choix();
-
-
-*/
- 
-
-
-
-
-
-
-
-
